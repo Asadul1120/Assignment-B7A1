@@ -1,27 +1,14 @@
-/*
-Problem 1
-Create a TypeScript function filterEvenNumbers that accepts an array of numbers and returns a new array containing only the even numbers.
-*/
+// Problem 1
 const filterEvenNumbers = (arr: number[]): number[] => {
   return arr.filter((num) => num % 2 === 0);
 };
-const result = filterEvenNumbers([1, 2, 3, 4, 5, 6]);
 
-/*
-Problem 2
-Write a function reverseString that takes a string as input and returns the reversed version of that string.
-*/
-
+// Problem 2
 const reverseString = (str: string): string => {
   return str.split("").reverse().join("");
 };
-const reversed = reverseString("typescript");
 
-/*
-Problem 3
-Define a union type StringOrNumber and create a function checkType that uses type guards to return "String" if the input is a string or "Number" if the input is a number.
-*/
-
+// Problem 3
 type StringOrNumber = string | number;
 const checkType = (input: StringOrNumber): string => {
   if (typeof input === "string") {
@@ -29,17 +16,11 @@ const checkType = (input: StringOrNumber): string => {
   } else if (typeof input === "number") {
     return "Number";
   } else {
-    return "Not a string or number";
+    return "Unknown";
   }
 };
-const TypeCheck = checkType("Hello");
-const TypeCheck2 = checkType(42);
 
-/*
-Problem 4
-Write a generic function getProperty that takes an object and a key, then returns the value of that key. Use constraints to ensure the key exists on the object.
-*/
-
+// Problem 4
 function getProperty<User, Key extends keyof User>(
   obj: User,
   key: Key,
@@ -47,19 +28,7 @@ function getProperty<User, Key extends keyof User>(
   return obj[key];
 }
 
-const user = {
-  id: 1,
-  name: "John Doe",
-  age: 21,
-};
-
-const Name = getProperty(user, "name");
-
-/*
-Problem 5
-Define an interface Book with properties title, author, and publishedYear. Create a function toggleReadStatus that accepts a Book object and returns a new object with an added isRead property (boolean), defaulting to true.
-*/
-
+// Problem 5
 interface Book {
   title: string;
   author: string;
@@ -69,19 +38,7 @@ const toggleReadStatus = (book: Book): Book & { isRead: boolean } => {
   return { ...book, isRead: true };
 };
 
-const myBook: Book = {
-  title: "TypeScript Guide",
-  author: "Jane Doe",
-  publishedYear: 2024,
-};
-
-const updatedBook = toggleReadStatus(myBook);
-
-/*
-Problem 6
-Create a class Person with a name and age. Then, create a subclass Student that adds a grade property. Include a method getDetails in the Student class that returns a string with the student's name, age, and grade.
-*/
-
+// Problem 6
 class Person {
   name: string;
   age: number;
@@ -103,17 +60,8 @@ class Student extends Person {
   }
 }
 
-const student = new Student("Alice", 20, "A");
-const studentDetails = student.getDetails();
-
-/*
-Problem 7
-Create a function getIntersection that takes two arrays of numbers and returns a new array containing only the elements that are present in both arrays.
-*/
-
+// Problem 7
 const getIntersection = (arr1: number[], arr2: number[]): number[] => {
   return arr1.filter((num) => arr2.includes(num));
 };
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [3, 4, 5, 6, 7];
-const intersection = getIntersection(arr1, arr2);
+
